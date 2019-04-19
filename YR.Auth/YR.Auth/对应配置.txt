@@ -1,0 +1,73 @@
+1. 修改当前站点的WEBCONFIG
+
+2.  STS WEB配置
+  <system.web>
+    <membership defaultProvider="FBAMember">
+      <providers>
+        <add name="FBAMember"
+         type="Microsoft.Office.Server.Security.LDAPMembershipProvider, Microsoft.Office.Server.UserProfiles, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+         server="sp.datawhy.com"
+         port="389"
+         useSSL="false"
+         userDNAttribute="distinguishedName"
+         userNameAttribute="sAMAccountName"
+         userContainer="CN=Users,DC=datawhy,DC=com"
+         userObjectClass="person"
+         userFilter="(|(ObjectCategory=group)(ObjectClass=person))"
+         scope="Subtree"
+         otherRequiredUserAttributes="sn,givenname,cn" />
+      </providers>
+    </membership>
+    <roleManager defaultProvider="FBARole" enabled="true" cacheRolesInCookie="true" cookieName=".PeopleDCRole">
+      <providers>
+        <add name="FBARole"
+         type="Microsoft.Office.Server.Security.LDAPRoleProvider, Microsoft.Office.Server.UserProfiles, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+         server="sp.datawhy.com"
+         port="389"
+         useSSL="false"
+         groupContainer="CN=Users,DC=datawhy,DC=com"
+         groupNameAttribute="cn"
+         groupMemberAttribute="member"
+         userNameAttribute="sAMAccountName"
+         dnAttribute="distinguishedName"
+         groupFilter="(ObjectClass=group)"
+         scope="Subtree"/>
+      </providers>
+    </roleManager>
+  </system.web>
+  
+ 3. 管理中心站点
+    <membership defaultProvider="FBAMember">
+      <providers>
+        <add name="FBAMember"
+         type="Microsoft.Office.Server.Security.LDAPMembershipProvider, Microsoft.Office.Server.UserProfiles, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+         server="sp.datawhy.com"
+         port="389"
+         useSSL="false"
+         userDNAttribute="distinguishedName"
+         userNameAttribute="sAMAccountName"
+         userContainer="CN=Users,DC=datawhy,DC=com"
+         userObjectClass="person"
+         userFilter="(|(ObjectCategory=group)(ObjectClass=person))"
+         scope="Subtree"
+         otherRequiredUserAttributes="sn,givenname,cn" />
+      </providers>
+    </membership>
+    <roleManager defaultProvider="FBARole" enabled="true" cacheRolesInCookie="true" cookieName=".PeopleDCRole">
+      <providers>
+        <add name="FBARole"
+         type="Microsoft.Office.Server.Security.LDAPRoleProvider, Microsoft.Office.Server.UserProfiles, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+         server="sp.datawhy.com"
+         port="389"
+         useSSL="false"
+         groupContainer="CN=Users,DC=datawhy,DC=com"
+         groupNameAttribute="cn"
+         groupMemberAttribute="member"
+         userNameAttribute="sAMAccountName"
+         dnAttribute="distinguishedName"
+         groupFilter="(ObjectClass=group)"
+         scope="Subtree"/>
+      </providers>
+    </roleManager>
+	
+4. 迁移脚本

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="69f15a65-1aff-4b2f-a0fa-643fbe82bc48" solutionId="69f15a65-1aff-4b2f-a0fa-643fbe82bc48" resetWebServer="false" sharePointProductVersion="16.0" name="YR.Auth" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="b9697411-8732-44c1-838b-e63574bd9748" />
+  </projectItems>
+</package>
